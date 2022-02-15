@@ -19,6 +19,7 @@ module.exports = function (params) {
     checkColumn: false, //whether check column number of a row is the same as headers. If column number mismatched headers number, an error of "mismatched_column" will be emitted.. default: false
     escape: '"', //escape char for quoted column
     colParser:{}, //flags on columns to alter field processing.
+    parseAsStrings: false, //forces all columns to be processed as strings, so you don't have to know all the header names to set the colParser manually
 
     /**below are internal params */
     _columnConv:[],

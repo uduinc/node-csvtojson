@@ -85,7 +85,13 @@ function convertRowToJson(row, headRow, param) {
     if (!head || head === "") {
       head = headRow[i] = "field" + (i + 1);
     }
-    var convFunc = getConvFunc(head, i, param);
+    var convFunc;
+    if (param.parseAsStrings) {
+      convFunc = stringType;
+    }
+    else {
+      convFunc = getConvFunc(head, i, param);
+    }
     if (convFunc) {
       var convRes = convFunc(item, head, resultRow,row,i);
       if (convRes !== undefined) {
